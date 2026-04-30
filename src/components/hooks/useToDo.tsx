@@ -15,10 +15,12 @@ export const useToDo = () => {
   }
 
   function addTodo() {
-    setTodos((prev) => [
-      ...prev,
-      { id: Date.now(), title: text, isDone: false },
-    ]);
+    if (text.trim()) {
+      setTodos((prev) => [
+        ...prev,
+        { id: Date.now(), title: text, isDone: false },
+      ]);
+    }
   }
 
   function removeTodo(id: number) {
