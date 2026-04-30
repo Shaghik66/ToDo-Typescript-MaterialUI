@@ -9,13 +9,14 @@ type HeaderProps = {
     changeText : (e : ChangeEvent<HTMLInputElement>) => void
     todos: Array<ITodo>
     removeTodo : (id : number) => void
+    changeStatus : (todo : ITodo) => void
 }
 
-export const Header = ({text, addTodo, changeText, todos, removeTodo} : HeaderProps) => {
+export const Header = ({text, addTodo, changeText, todos, removeTodo, changeStatus} : HeaderProps) => {
   return (
     <header>
         <AddToDoForm text={text} addTodo={addTodo} changeText={changeText} />
-        <ToDosContainer todos={todos} removeTodo={removeTodo}/>
+        <ToDosContainer todos={todos} removeTodo={removeTodo} changeStatus={changeStatus}/>
     </header>
   )
 }

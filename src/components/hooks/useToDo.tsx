@@ -21,9 +21,21 @@ export const useToDo = () => {
     ]);
   }
 
-  function removeTodo(id : number){
-   return setTodos(todos.filter((todo) =>(todo.id !== id)))
+  function removeTodo(id: number) {
+    return setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  return { text, todos, addTodo, changeText, removeTodo };
+  function changeStatus(todo: ITodo) {
+    setTodos(
+      todos.map((t) => {
+        if (todo.id === t.id) {
+          return { ...t, isDone: !todo.isDone };
+        } else {
+          return t;
+        }
+      }),
+    );
+  }
+
+  return { text, todos, addTodo, changeText, removeTodo, changeStatus };
 };

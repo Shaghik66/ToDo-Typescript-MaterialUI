@@ -5,16 +5,17 @@ import { type ITodo } from "../../hooks/useToDo";
 type ToDoContainerProps = {
     todo: ITodo
     removeTodo : (id : number) => void
+    changeStatus : (todo : ITodo) => void
 }
 
-export const ToDoContainer = ({todo, removeTodo} : ToDoContainerProps) => {
+export const ToDoContainer = ({todo, removeTodo, changeStatus} : ToDoContainerProps) => {
 
 
   return (
-    <section>
-      <ToDoCheckboxInput />
+    <div>
+      <ToDoCheckboxInput changeStatus={changeStatus} todo={todo}/>
       <p>{todo.title}</p>
       <ToDoRemoveButton removeTodo={removeTodo} id={todo.id}/>
-    </section>
+    </div>
   );
 };

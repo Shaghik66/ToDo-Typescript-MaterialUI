@@ -1,7 +1,13 @@
 import React from 'react'
+import {type ITodo } from '../../hooks/useToDo'
 
-export const ToDoCheckboxInput = () => {
+type ToDoCheckboxInputProps = {
+    changeStatus : (todo : ITodo) => void
+    todo : ITodo
+}
+
+export const ToDoCheckboxInput = ({todo , changeStatus} : ToDoCheckboxInputProps) => {
   return (
-    <div>ToDoCheckboxInput</div>
+    <input type="checkbox" checked={todo.isDone}  onChange={() => changeStatus(todo)}/>
   )
 }
