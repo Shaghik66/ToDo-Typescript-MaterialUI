@@ -1,12 +1,17 @@
-
+import { IconButton, Stack } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 type ToDoRemoveButtonProps = {
-    id : number 
-    removeTodo : (id : number) => void
-}
+  id: number;
+  removeTodo: (id: number) => void;
+};
 
-export const ToDoRemoveButton = ({id, removeTodo} :ToDoRemoveButtonProps) => {
+export function ToDoRemoveButton({ id, removeTodo }: ToDoRemoveButtonProps) {
   return (
-    <button onClick={() => removeTodo(id)}>ToDoRemoveButton</button>
-  )
+    <Stack direction="row" spacing={1}>
+      <IconButton aria-label="delete" onClick={() => removeTodo(id)}>
+        <DeleteIcon />
+      </IconButton>
+    </Stack>
+  );
 }
