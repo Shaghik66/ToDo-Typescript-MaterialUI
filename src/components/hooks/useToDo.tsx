@@ -20,6 +20,7 @@ export const useToDo = () => {
         ...prev,
         { id: Date.now(), title: text, isDone: false },
       ]);
+      setText("");
     }
   }
 
