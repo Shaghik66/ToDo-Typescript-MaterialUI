@@ -1,0 +1,25 @@
+import { useState, type ChangeEvent } from "react";
+
+interface ITodo {
+  id: number;
+  title: string;
+  isDone: boolean;
+}
+
+export const useToDo = () => {
+  const [text, setText] = useState<string>("");
+  const [todos, setTodos] = useState<ITodo[]>([]);
+
+  function changeText(e: ChangeEvent<HTMLInputElement>) {
+    setText(e.target.value);
+  }
+
+  function addTodo() {
+    setTodos((prev) => [
+      ...prev,
+      { id: Date.now(), title: text, isDone: false },
+    ]);
+  }
+
+  return { text, todos, addTodo, changeText };
+};
