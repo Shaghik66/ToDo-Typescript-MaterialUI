@@ -10,7 +10,7 @@ export function ToDoRemoveButton({ id, removeTodo }: ToDoRemoveButtonProps) {
   return (
     <Stack direction="row" spacing={1}>
       <IconButton aria-label="delete" onClick={() => removeTodo(id)}>
-        <DeleteIcon />
+        <DeleteIcon sx={{ color: "pink" }} />
       </IconButton>
     </Stack>
   );

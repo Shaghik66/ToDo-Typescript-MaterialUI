@@ -1,4 +1,5 @@
 import { type ChangeEvent } from "react";
+import {Box} from "@mui/material"
 import { AddToDoInput } from "../../atoms/AddToDoInput/AddToDoInput";
 import { AddToDoButton } from "../../atoms/AddToDoButton/AddToDoButton";
 
@@ -14,9 +15,9 @@ export const AddToDoForm = ({
   changeText,
 }: AddToDoFormProps) => {
   return (
-    <>
+    <Box sx={{display: "flex"}}>
       <AddToDoInput text={text} changeText={changeText} />
       <AddToDoButton addTodo={addTodo} />
-    </>
+    </Box>
   );
 };
