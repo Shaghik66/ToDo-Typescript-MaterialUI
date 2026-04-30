@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 
-interface ITodo {
+export interface ITodo {
   id: number;
   title: string;
   isDone: boolean;
@@ -21,5 +21,9 @@ export const useToDo = () => {
     ]);
   }
 
-  return { text, todos, addTodo, changeText };
+  function removeTodo(id : number){
+   return setTodos(todos.filter((todo) =>(todo.id !== id)))
+  }
+
+  return { text, todos, addTodo, changeText, removeTodo };
 };

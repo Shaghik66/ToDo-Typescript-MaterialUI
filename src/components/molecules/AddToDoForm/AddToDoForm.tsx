@@ -1,20 +1,22 @@
-import { type ChangeEvent } from 'react'
+import { type ChangeEvent } from "react";
 import { AddToDoInput } from "../../atoms/AddToDoInput/AddToDoInput";
 import { AddToDoButton } from "../../atoms/AddToDoButton/AddToDoButton";
 
-
 type AddToDoFormProps = {
-    text : string
-    addTodo : ( ) => void
-    changeText : (e : ChangeEvent<HTMLInputElement>) => void
-}
+  text: string;
+  addTodo: () => void;
+  changeText: (e: ChangeEvent<HTMLInputElement>) => void;
+};
 
-
-export const AddToDoForm = ({text, addTodo, changeText} : AddToDoFormProps) => {
+export const AddToDoForm = ({
+  text,
+  addTodo,
+  changeText,
+}: AddToDoFormProps) => {
   return (
     <>
-      <AddToDoInput text={text} changeText={changeText}/>
-      <AddToDoButton addTodo={addTodo}/>
+      <AddToDoInput text={text} changeText={changeText} />
+      <AddToDoButton addTodo={addTodo} />
     </>
   );
 };
