@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent } from "react";
+import { useRef } from "react";
 
 export interface ITodo {
   id: number;
@@ -9,6 +10,7 @@ export interface ITodo {
 export const useToDo = () => {
   const [text, setText] = useState<string>("");
   const [todos, setTodos] = useState<ITodo[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function changeText(e: ChangeEvent<HTMLInputElement>) {
     setText(e.target.value);
@@ -22,6 +24,7 @@ export const useToDo = () => {
       ]);
       setText("");
     }
+    inputRef.current?.focus();
   }
 
   function removeTodo(id: number) {
@@ -40,5 +43,13 @@ export const useToDo = () => {
     );
   }
 
-  return { text, todos, addTodo, changeText, removeTodo, changeStatus };
+  return {
+    text,
+    todos,
+    addTodo,
+    changeText,
+    removeTodo,
+    changeStatus,
+    inputRef,
+  };
 };

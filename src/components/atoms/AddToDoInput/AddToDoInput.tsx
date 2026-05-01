@@ -1,13 +1,13 @@
-import { type ChangeEvent } from "react";
-import {Stack, TextField} from "@mui/material";
+import { type ChangeEvent, type RefObject } from "react";
+import { Stack, TextField } from "@mui/material";
 
 type AddTodoPropsType = {
   text: string;
   changeText: (e: ChangeEvent<HTMLInputElement>) => void;
+  inputRef: RefObject<HTMLInputElement | null>;
 };
 
-
-export function AddToDoInput({ text, changeText }: AddTodoPropsType) {
+export function AddToDoInput({ text, changeText, inputRef }: AddTodoPropsType) {
   return (
     <Stack
       component="form"
@@ -23,6 +23,7 @@ export function AddToDoInput({ text, changeText }: AddTodoPropsType) {
         size="small"
         value={text}
         onChange={changeText}
+        inputRef={inputRef}
       />
     </Stack>
   );
