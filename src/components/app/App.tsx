@@ -10,6 +10,7 @@ function App() {
     removeTodo,
     changeStatus,
     inputRef,
+    handlePreventDefault
   } = useToDo();
 
   return (
@@ -22,6 +23,7 @@ function App() {
         removeTodo={removeTodo}
         changeStatus={changeStatus}
         inputRef={inputRef}
+        handlePreventDefault={handlePreventDefault}
       />
     </main>
   );

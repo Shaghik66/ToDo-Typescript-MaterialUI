@@ -43,6 +43,10 @@ export const useToDo = () => {
     );
   }
 
+  function handlePreventDefault(e: ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+  }
+
   return {
     text,
     todos,
@@ -51,5 +55,6 @@ export const useToDo = () => {
     removeTodo,
     changeStatus,
     inputRef,
+    handlePreventDefault
   };
 };

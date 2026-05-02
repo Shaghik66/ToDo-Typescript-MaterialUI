@@ -1,13 +1,19 @@
-import { type ChangeEvent, type RefObject } from "react";
+import { type ChangeEvent, type RefObject, type SubmitEvent } from "react";
 import { Stack, TextField } from "@mui/material";
 
 type AddTodoPropsType = {
   text: string;
   changeText: (e: ChangeEvent<HTMLInputElement>) => void;
   inputRef: RefObject<HTMLInputElement | null>;
+  handlePreventDefault: (e: SubmitEvent<HTMLFormElement>) => void;
 };
 
-export function AddToDoInput({ text, changeText, inputRef }: AddTodoPropsType) {
+export function AddToDoInput({
+  text,
+  changeText,
+  inputRef,
+  handlePreventDefault,
+}: AddTodoPropsType) {
   return (
     <Stack
       component="form"
@@ -15,6 +21,7 @@ export function AddToDoInput({ text, changeText, inputRef }: AddTodoPropsType) {
       spacing={2}
       noValidate
       autoComplete="off"
+      onSubmit={handlePreventDefault}
     >
       <TextField
         hiddenLabel

@@ -1,4 +1,4 @@
-import { type ChangeEvent, type RefObject } from "react";
+import { type ChangeEvent, type RefObject, type SubmitEvent } from "react";
 import { AddToDoForm } from "../../molecules/AddToDoForm/AddToDoForm";
 import { ToDosContainer } from "../../molecules/ToDosContainer/ToDosContainer";
 import { type ITodo } from "../../hooks/useToDo";
@@ -10,7 +10,8 @@ type HeaderProps = {
   todos: Array<ITodo>;
   removeTodo: (id: number) => void;
   changeStatus: (todo: ITodo) => void;
-  inputRef: RefObject<HTMLInputElement | null> ;
+  inputRef: RefObject<HTMLInputElement | null>;
+  handlePreventDefault: (e: SubmitEvent<HTMLFormElement>) => void;
 };
 
 export const Header = ({
@@ -21,6 +22,7 @@ export const Header = ({
   removeTodo,
   changeStatus,
   inputRef,
+  handlePreventDefault,
 }: HeaderProps) => {
   return (
     <header>
@@ -29,6 +31,7 @@ export const Header = ({
         addTodo={addTodo}
         changeText={changeText}
         inputRef={inputRef}
+        handlePreventDefault={handlePreventDefault}
       />
       <ToDosContainer
         todos={todos}
