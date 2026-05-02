@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import { useRef } from "react";
 
 export interface ITodo {
@@ -43,7 +43,7 @@ export const useToDo = () => {
     );
   }
 
-  function handlePreventDefault(e: ChangeEvent<HTMLInputElement>) {
+  function handlePreventDefault(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
   }
 

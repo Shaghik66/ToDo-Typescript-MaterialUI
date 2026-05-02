@@ -10,7 +10,7 @@ function App() {
     removeTodo,
     changeStatus,
     inputRef,
-    handlePreventDefault
+    handlePreventDefault,
   } = useToDo();
 
   return (
